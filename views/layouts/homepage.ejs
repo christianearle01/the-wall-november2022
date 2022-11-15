@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/css-reset-and-normalize/css/reset-and-normalize.min.css">
+    <link rel="stylesheet" href="/assets/css/homepage.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div>
+        <form id="login_form" action="/api/users/login" method="post">
+            <p>LOGIN</p>
+            <label for="email_address">Email Address:</label>
+            <input type="email" name="email_address" placeholder="email@address.com">
+            
+            <label for="password">Password:</label>
+            <input type="password"name="password" placeholder="******">
+
+            <input type="submit" value="Login">
+        </form>
+
+        <form id="register_form" action="/api/users/register" method="post">
+            <p>REGISTER</p>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" placeholder="First Name">
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" placeholder="Last Name">
+
+            <label for="email_address">Email Address:</label>
+            <input type="email" name="email_address" placeholder="email@address.com">
+            
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="******">
+
+            <label for="password">Confirm Password:</label>
+            <input type="password" name="confirm_password" placeholder="******">
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <script src="/assets/javascript/index.js"></script>
+</body>
+</html>

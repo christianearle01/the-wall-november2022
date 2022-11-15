@@ -1,0 +1,14 @@
+
+<div>
+    <a class="delete_message" href="/api/wall/delete_message/<%= message_data.id %>">X</a>
+    <p><%= message_data.name %> (<%= message_data.created_at %>)</p>
+    <p><%= message_data.content %></p>
+    <span>COMMENTS:</span>
+    <div>
+
+        <form class="comment_comment" action="api/wall/post_comment/<%= message_data.id %>" method="post">
+            <textarea name="content"></textarea>
+            <input type="submit" value="Post a Comment">
+        </form>
+    </div>
+</div>

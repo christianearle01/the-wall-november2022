@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/css-reset-and-normalize/css/reset-and-normalize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header>
+        <p>Welcome <%= first_name %></p>
+        <a href="/logout">LOG OUT</a>
+    </header>
+    <div>
+        <form id="post_message" action="/api/wall/post_message" method="post">
+            <textarea name="content"></textarea>
+            <input type="submit" value="Post a Message">
+        </form>
+        <p>MESSAGES: </p>
+        <div id="message_header">
+            <% for(let message_data of messages_data){ %>
+            <div>
+                <a class="delete_message" href="/api/wall/delete_message/<%= message_data.id %>">X</a>
+                <p><%= message_data.name %> (<%= message_data.created_at %>)</p>
+                <p><%= message_data.content %></p>
+                <span>COMMENTS:</span>
+                <div>
+
+                    <% for(let comment_data of message_data.comments_data){ %>
+                        <% if(comment_data?.id){ %>
+                        <div>
+                            <a class="delete_comment" href="/api/wall/delete_comment/<%= comment_data.id %>">X</a>
+                            <p><%= comment_data.name %> (<%= comment_data.created_at %>)</p>
+                            <p><%= comment_data.content %></p>
+                        </div>
+                        <% } %>
+                    <% } %>
+
+                    <form class="comment_comment" action="api/wall/post_comment/<%= message_data.id %>" method="post">
+                        <textarea name="content"></textarea>
+                        <input type="submit" value="Post a Comment">
+                    </form>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+
+    </div>
+    <script src="/assets/javascript/index.js"></script>
+</body>
+</html>

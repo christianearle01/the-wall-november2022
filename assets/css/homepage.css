@@ -1,0 +1,31 @@
+body div {
+    width: 60%;
+    display: block;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid rgb(22, 199, 22);
+    border-radius: 10px;
+}
+
+form > * {
+    width: 50%;
+    display: block;
+    margin: 10px auto;
+    padding: 8px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+form > p {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#login_form {
+    padding-bottom: 15px;
+}
+
+#register_form {
+    border-top: 2px dotted green;
+    padding-top: 10px
+}
